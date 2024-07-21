@@ -28,12 +28,16 @@ jobs:
       # - name: Print Docker Password (partial)
       #   run: echo "DOCKER_PASSWORD=${{ secrets.DOCKER_PASSWORD:0:4 }}*
 
-      - name: Log in to Docker Hub
+      - name: Login to Docker Registry
         run: |
-          echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          sudo docker login -u ${{ secrets.DOCKERHUB_UNAME }} --password ${{ secrets.DOCKERHUB_PASSWD }}
+
+      # - name: Log in to Docker Hub
+      #   run: |
+      #     echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+      #   env:
+      #     DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      #     DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - name: docker tag
         run: |
           sudo docker tag angular-ui:$DOCKER_TAG ramupunuru/angular-ui:$DOCKER_TAG

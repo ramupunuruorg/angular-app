@@ -22,11 +22,11 @@ jobs:
         run: |
           sudo docker build -t angular-ui:$DOCKER_TAG .
 
-      - name: Print Docker Username
-        run: echo "DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}"
+      # - name: Print Docker Username
+      #   run: echo "DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}"
 
-      - name: Print Docker Password (partial)
-        run: echo "DOCKER_PASSWORD=${{ secrets.DOCKER_PASSWORD:0:4 }}****"
+      # - name: Print Docker Password (partial)
+      #   run: echo "DOCKER_PASSWORD=${{ secrets.DOCKER_PASSWORD:0:4 }}*
 
       - name: Log in to Docker Hub
         run: |

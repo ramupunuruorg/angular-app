@@ -1,4 +1,4 @@
-name: Angular UI deployments
+name: Angular UI deployment
 on:
   push:
     branches:

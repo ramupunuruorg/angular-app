@@ -53,14 +53,14 @@ jobs:
           github-server-url: https://github.com/
           ref: "main"
           sparse-checkout: |
-            apps/angular_ui.yml
+            apps/angular_pod.yml
           sparse-checkout-cone-mode: false
           token: ${{ secrets.GIT_PA_TOKEN }}
 
       - name: Update Image Tag in Kubernetes Manifest
         run: |
-          sudo sed -i 's;ramupunuru/angular-ui:.*;ramupunuru/angular-ui:'"$DOCKER_TAG"';g' ./apps/angular_ui.yml
-          cat ./apps/angular_ui.yml
+          sudo sed -i 's;ramupunuru/angular-ui:.*;ramupunuru/angular-ui:'"$DOCKER_TAG"';g' ./apps/angular_pod.yml
+          cat ./apps/angular_pod.yml
       - name: commit and push changes
         # if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main'
         run: |

@@ -45,26 +45,26 @@ jobs:
       - name: Push Docker Image
         run: sudo docker push ramupunuru/angular-ui:$DOCKER_TAG
 
-      # - name: Checkout code angular-deployments repo
-      #   if: github.ref == 'refs/heads/main'
-      #   uses: actions/checkout@v3
-      #   with:
-      #     repository: cloudstonesorg/angular-deployments
-      #     github-server-url: https://github.com/
-      #     ref: 'main'
-      #     sparse-checkout: |
-      #       apps/angular/angular_ui.yml
-      #     sparse-checkout-cone-mode: false
-      #     token: ${{ secrets.GIT_PA_TOKEN }}
+      - name: Checkout code k8s-manifest repo
+        if: github.ref == 'refs/heads/main'
+        uses: actions/checkout@v3
+        with:
+          repository: ramupunuruorg/k8s-manifests
+          github-server-url: https://github.com/
+          ref: "main"
+          sparse-checkout: |
+            apps/angular_ui.yml
+          sparse-checkout-cone-mode: false
+          token: ${{ secrets.GIT_PA_TOKEN }}
 
-      # - name: Update Image Tag in Kubernetes Manifest
-      #   run: |
-      #     sudo sed -i 's;ramupunuru/angular-ui:.*;ramupunuru/angular-ui:'"$DOCKER_TAG"';g' ./apps/angular/angular_ui.yml
-      #     cat ./apps/angular/angular_ui.yml
-      # - name: commit and push changes
-      #   # if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main'
-      #   run: |
-      #     git config --global user.email "ramupunuru@gmail.com"
-      #     git config --global user.name "krish"
-      #     git add . && git commit -m "change image tag for angular-ui service $DOCKER_TAG"
-      #     git push origin main
+      - name: Update Image Tag in Kubernetes Manifest
+        run: |
+          sudo sed -i 's;ramupunuru/angular-ui:.*;ramupunuru/angular-ui:'"$DOCKER_TAG"';g' ./apps/angular_ui.yml
+          cat ./apps/angular_ui.yml
+      - name: commit and push changes
+        # if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main'
+        run: |
+          git config --global user.email "ramupunuru@gmail.com"
+          git config --global user.name "krish"
+          git add . && git commit -m "change image tag for angular-ui service $DOCKER_TAG"
+          git push origin main

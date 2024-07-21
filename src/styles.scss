@@ -1,0 +1,217 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.positive {
+    color: #017e07 !important;
+    cursor: pointer;
+}
+
+.negative {
+    color: #b11d00 !important;
+    cursor: pointer;
+}
+
+.primary {
+    color: #43515a !important;
+    cursor: pointer;
+}
+
+.accent {
+    color: #007373 !important;
+    cursor: pointer;
+}
+
+.bg-primary{
+    background-color: #43515a;
+    color: white;
+}
+
+.bg-accent{
+    background-color: #007373;
+}
+
+
+.header-card {
+    flex-basis: 25%;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+  .header-card mat-card {
+    min-height: 100px;
+  }
+  
+  .header-card mat-card-title {
+    position: relative;
+    padding-bottom: 15px;
+    color: #007373;
+  }
+  
+  .header-card mat-card-title::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: grey;
+  }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.home-card {
+    flex-basis: 25%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.home-card mat-card {
+    min-height: 100px;
+}
+
+.home-card mat-card-title {
+    position: relative;
+    padding-bottom: 15px;
+    color: #007373;
+}
+
+.home-card mat-card-title::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: grey;
+}
+
+.button-orange{
+    color: white;
+    background-color: #ffb74d;
+}
+
+.button-negative{
+    color: white;
+    background-color: #f46f5a;
+}
+
+
+
+.td-link{
+    color:#43515a;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #007373;
+}
+
+.loading-indicator {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Transparent Overlay */
+.loading-indicator:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+  }
+
+  .basic-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .basic-table th,
+  .basic-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .basic-table th {
+    background-color: #f2f2f2;
+  }
+
+
+  /* The below code is for breadcrumbs */
+.breadcrumb {
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    counter-reset: flag;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+    outline: none;
+    display: block;
+    float: left;
+    font-size: 12px;
+    line-height: 36px;
+    color: teal;
+    padding: 0 10px 0 10px;
+    background: #fafafa;
+    position: relative;
+  }
+  .breadcrumb a:first-child {
+    padding-left: 46px;
+    border-radius: 5px 0 0 5px;
+  }
+  .breadcrumb a:first-child:before {
+    left: 14px;
+  }
+  .breadcrumb a:last-child {
+    border-radius: 0 5px 5px 0;
+    padding-right: 20px;
+  }
+  
+  /* Hover/active styles */
+  .breadcrumb a.active, .breadcrumb a:hover {
+    color: #ffb74d;
+  }
+  .breadcrumb a.active:after, .breadcrumb a:hover:after {
+    background: #ffb74d;
+    // background: linear-gradient(135deg, #333, #000);
+  }
+  
+  /* Adding the arrows for the breadcrumbs using rotated pseudo elements */
+  .breadcrumb a:after {
+    content: "\203A";
+    position: relative; /* Change to relative to enable margin */
+    margin-left: 20px; /* Add margin to create space */
+  }
+  .breadcrumb a:last-child:after {
+    content: none;
+  }

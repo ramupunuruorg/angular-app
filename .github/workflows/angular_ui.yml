@@ -64,7 +64,7 @@ jobs:
       - name: commit and push changes
         # if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main'
         run: |
-          git config --global user.email "ramupunuru@gmail.com"
-          git config --global user.name "krish"
+          git config --global user.email "kittu.punuru@gmail.com"
+          git config --global user.name "ramu"
           git add . && git commit -m "change image tag for angular-ui service $DOCKER_TAG"
           git push origin main
